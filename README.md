@@ -3,7 +3,7 @@
 
 Start with this::
 	
-	sh -c "`curl -fsSL https://raw.github.com/fritzvd/dotfiles/master/install.sh`"
+	wget -O - https://raw.github.com/fritzvd/dotfiles/master/install.sh | bash
 
 dotfiles
 =======
