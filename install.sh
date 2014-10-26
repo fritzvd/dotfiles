@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo apt-get install git-core vim build-essential ipython numpy ruby2.0
+sudo apt-get install git-core vim build-essential ipython ruby2.0
 git clone git@github.com:fritzvd/dotfiles ~/.dotfiles
 cd ~/.dotfiles
 ./script/bootstrap
