@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Homebrew
 #
@@ -6,13 +6,18 @@
 # using Homebrew.
 
 # Check for Homebrew
-if test ! $(which brew)
-then
-  echo "  Installing Homebrew for you."
-  ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)" > /tmp/homebrew-install.log
-fi
+os=`uname`
+if [ "$os" == "Darwin" ]; then
+	if test ! $(which brew)
+	then
+	  echo "  Installing Homebrew for you."
+	  ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)" > /tmp/homebrew-install.log
+	fi
 
-# Install homebrew packages
-brew install grc coreutils spark
+	# Install homebrew packages
+	brew install grc coreutils spark
+elif [ "$os" == "Linux" ]; then
+	echo "Homebrew is for Darwinists"
+fi
 
 exit 0
