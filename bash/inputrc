@@ -1,0 +1,14 @@
+$include /etc/inputrc
+
+# Ignore case for tab completion.
+set completion-ignore-case on
+
+# No need to press tab twice
+set show-all-if-ambiguous on
+
+# Type the start of a command ("svn" or so) and press up/down to cycle
+# through previous versions of that command.
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+
