@@ -1,0 +1,15 @@
+#!/usr/bin/python
+
+from datetime import datetime
+import subprocess
+
+def main ():
+    hour = datetime.now().hour
+    if hour > 17 or hour < 9:
+        subprocess.call(["cp", "~/.dotfiles/xfce/darkrc", " ~/.config/xfce4/terminal/terminalrc"])
+    else:
+        subprocess.call(["cp","~/.dotfiles/xfce/lightrc", "~/.config/xfce4/terminal/terminalrc"])
+
+
+if __name__ == '__main__':
+    main()

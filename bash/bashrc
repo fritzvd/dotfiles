@@ -155,12 +155,14 @@ function marks {
     ls -l "$MARKPATH" | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
 }
 
-alias android-studio="~/Software/android-studio/bin/studio.sh"
-export PATH="/opt/android-sdk/platform-tools/":$PATH
-export PATH="/opt/android-sdk/tools/":$PATH
-export GOPATH="/home/fritz/Software/gocodoe"
-export PATH="/usr/lib/nvidia-331/":$PATH
-
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
 alias ffmpeg='avconv'
+
+export PATH="/opt/android-sdk/platform-tools:$PATH"
+export PATH="/opt/android-sdk/tools:$PATH"
+export JAVA_HOME="/home/fritz/Downloads/jdk1.8.0_25"
+export PATH="/home/fritz/Downloads/jdk1.8.0_25/bin:$PATH"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

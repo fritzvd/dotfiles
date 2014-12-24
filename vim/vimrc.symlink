@@ -40,6 +40,7 @@ set noswapfile
 " 1 tab == 4 spaces
 set shiftwidth=4
 set tabstop=4
+set expandtab
 
 " Linebreak on 500 characters
 set lbr
@@ -57,6 +58,16 @@ map <leader>tm :tabmove
 map <leader>t<leader> :tabnext 
 
 " FRITZ ZIJN STYLO
+
+" Move between splits easier
+nmap <leader><Up> <C-w><Up>
+nmap <leader><Down> <C-w><Down>
+nmap <leader><Left> <C-w><Left>
+nmap <leader><Right> <C-w><Right>
+
+" split opens to the right
+set splitright
+
 set nocompatible
 filetype off
 
@@ -69,10 +80,13 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'nvie/vim-flake8'
+Plugin 'jdonaldson/vaxe'
 
 call vundle#end()
 filetype plugin indent on
 
 "javascript spaces
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
 map <C-n> :NERDTreeToggle<CR>
