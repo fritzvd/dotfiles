@@ -2,13 +2,17 @@
 
 from datetime import datetime
 import subprocess
+import os
+import getpass
 
 def main ():
     hour = datetime.now().hour
+    user = getpass.getuser()
+    abspath = '/home/{}/.dotfiles/'.format(user)
     if hour > 17 or hour < 9:
-        subprocess.call(["cp", "~/.dotfiles/xfce/darkrc", " ~/.config/xfce4/terminal/terminalrc"])
+        subprocess.call(["cp", os.path.join(abspath,"xfce/darkrc"), "/home/{}/.config/xfce4/terminal/terminalrc".format(user)])
     else:
-        subprocess.call(["cp","~/.dotfiles/xfce/lightrc", "~/.config/xfce4/terminal/terminalrc"])
+        subprocess.call(["cp", os.path.join(abspath,"xfce/lightrc"), "/home/{}/.config/xfce4/terminal/terminalrc".format(user)])
 
 
 if __name__ == '__main__':

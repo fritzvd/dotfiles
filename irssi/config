@@ -1,0 +1,13 @@
+servers = (
+        {
+        address = "chat.freenode.net";
+        chatnet = "freenode";
+        port = "6667";
+        autoconnect = "Yes";
+        });
+
+channels = (
+    { name = "#nens"; chatnet="freenode"; autojoin = "Yes"; },
+    { name = "#iojs"; chatnet="freenode"; autojoin = "Yes"; },
+    { name = "#libregraphicsmag"; chatnet="freenode"; autojoin = "Yes"; },
+);

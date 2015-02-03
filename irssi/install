@@ -1,0 +1,16 @@
+#!/usr/bin/python
+
+import subprocess
+import os
+import getpass
+
+def main ():
+    user = getpass.getuser()
+    abspath = '/home/{}/'.format(user)
+    directory = os.path.exists(os.path.join(abspath, '.irssi'))
+    if not directory:
+        os.makedirs(directory)
+    subprocess.call(["cp", os.path.join(abspath,".dotfiles/irssi/config"), ".irssi/config"])
+
+if __name__ == '__main__':
+    main()
