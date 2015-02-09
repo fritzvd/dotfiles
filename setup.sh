@@ -11,6 +11,7 @@ sudo apt-get install nodejs -y
 sudo npm install -g grunt-cli bower
 
 git clone https://github.com/fritzvd/dotfiles.git ~/.dotfiles
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cd ~/.dotfiles
 ./script/bootstrap
 ./script/install
