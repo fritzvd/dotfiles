@@ -7,7 +7,7 @@ sudo apt-get dist-upgrade
 # node stuff
 curl -sL https://deb.nodesource.com/setup | sudo bash -
 sudo apt-get update
-sudo apt-get install nodejs
+sudo apt-get install nodejs -y
 sudo npm install -g grunt-cli bower
 
 git clone https://github.com/fritzvd/dotfiles.git ~/.dotfiles
