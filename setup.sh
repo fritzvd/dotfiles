@@ -23,4 +23,7 @@ wget "`python ~/.dotfiles/latest_vagrant.py`"
 sudo dpkg -i *.deb
 vagrant plugin install vagrant-lxc
 rm -rf .tmp/
+
+wget -O - https://bootstrap.pypa.io/get-pip.py | python
+
 exit;
