@@ -3,7 +3,7 @@
 
 Start with this::
 	
-	wget -O - https://raw.github.com/fritzvd/dotfiles/master/install.sh | bash
+	wget -O - https://raw.github.com/fritzvd/dotfiles/master/setup.sh | bash
 
 dotfiles
 =======
