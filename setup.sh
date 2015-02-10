@@ -1,8 +1,7 @@
 #!/bin/sh
 
 sudo apt-get install -y git-core vim build-essential htop ruby2.0 lxc lxc-templates cgroup-lite redir curl tmux
-sudo apt-get update
-sudo apt-get dist-upgrade
+sudo apt-get update && sudo apt-get upgrade -y
 
 # node stuff
 curl -sL https://deb.nodesource.com/setup | sudo bash -
