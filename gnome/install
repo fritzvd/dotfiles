@@ -1,0 +1,16 @@
+#!/usr/bin/python
+
+import subprocess
+import os
+import getpass
+
+from replace_theme import run_replacement
+
+def main ():
+    user = getpass.getuser()
+    abspath = '/home/{}/.dotfiles/'.format(user)
+    subprocess.call(['cp', '-r', os.path.join(abspath, "gnome/gnome-terminal"), "/home/{}/.gconf/apps/".format(user)])
+    run_replacement()
+
+if __name__ == '__main__':
+    main()
