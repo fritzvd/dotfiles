@@ -11,13 +11,14 @@ nmap <leader>w :w!<cr>
 
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
-command W w !sudo tee % > /dev/null
+"command W w !sudo tee % > /dev/null
 
 " Highlight search results
 set hlsearch
 
 " Enable syntax highlighting
 syntax enable 
+"syntax on 
 
 set background=light
 
@@ -37,9 +38,12 @@ set nobackup
 set nowb
 set noswapfile
 
+set modeline
+
 " 1 tab == 4 spaces
 set shiftwidth=4
 set tabstop=4
+set softtabstop=4
 set expandtab
 
 " Linebreak on 500 characters
@@ -80,11 +84,15 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'nvie/vim-flake8'
 Plugin 'jdonaldson/vaxe'
+Plugin 'rust-lang/rust.vim'
+Plugin 'JuliaLang/julia-vim'
 
 call vundle#end()
 filetype plugin indent on
+
 
 "javascript spaces
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
@@ -93,3 +101,8 @@ map <C-n> :NERDTreeToggle<CR>
 
 " python run flake8
 autocmd BufWritePost *.py call Flake8()
+" python turn off docs
+autocmd FileType python setlocal completeopt-=preview
+
+" js run jshint on save
+let jshint2_save = 1

@@ -155,6 +155,15 @@ function marks {
     ls -l "$MARKPATH" | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
 }
 
+_completemarks() {
+    local curw=${COMP_WORDS[COMP_CWORD]}
+    local wordlist=$(find $MARKPATH -type l -printf "%f\n")
+    COMPREPLY=($(compgen -W '${wordlist[@]}' -- "$curw"))
+    return 0
+}
+
+complete -F _completemarks jump unmark
+
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
@@ -162,10 +171,11 @@ export FFMPEG_PATH="/usr/local/bin/ffmpeg"
 export FFPROBE_PATH="/usr/local/bin/ffprobe"
 
 
-export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64/"
+export JAVA_HOME="/opt/java-jdk/"
+export JRE_HOME="/opt/java-jdk/jre"
 export PATH="/opt/android-sdk/platform-tools:$PATH"
 export PATH="/opt/android-sdk/tools:$PATH"
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
+export PATH="$PATH:$JAVA_HOME/bin" # Add JAVA to PATH 
 export PATH=$PATH:/usr/local/go/bin
+export PATH
