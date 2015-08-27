@@ -9,6 +9,7 @@ def main ():
     hour = datetime.now().hour
     user = getpass.getuser()
     abspath = '/home/{}/.dotfiles/'.format(user)
+    subprocess.call(["mkdir", "-p", "/home/{}/.config/xfce4/terminal/".format(user)])
     if hour > 17 or hour < 9:
         subprocess.call(["cp", os.path.join(abspath,"xfce/darkrc"), "/home/{}/.config/xfce4/terminal/terminalrc".format(user)])
     else:

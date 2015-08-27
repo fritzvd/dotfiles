@@ -169,7 +169,9 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 export FFMPEG_PATH="/usr/local/bin/ffmpeg"
 export FFPROBE_PATH="/usr/local/bin/ffprobe"
+export FFMPEG_DATADIR="/usr/share/avconv/"
 
+export PYTHONPATH="/home/fritz/Development/me/caffe/python":$PYTHONPATH
 
 export JAVA_HOME="/opt/java-jdk/"
 export JRE_HOME="/opt/java-jdk/jre"

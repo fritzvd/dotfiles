@@ -1,0 +1,6 @@
+#!/bin/sh
+
+USER=`whoami`
+mkdir -p ~/.fonts
+cp /home/$USER/.dotfiles/fonts/FiraMono-Regular.ttf ~/.fonts/
+sudo fc-cache -f -v
