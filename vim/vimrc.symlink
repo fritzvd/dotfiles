@@ -11,21 +11,10 @@ nmap <leader>w :w!<cr>
 
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
-"command W w !sudo tee % > /dev/null
+command W w !sudo tee % > /dev/null
 
 " Highlight search results
 set hlsearch
-
-" Enable syntax highlighting
-syntax enable 
-"syntax on 
-
-set background=light
-
-try
-    colorscheme solarized
-catch
-endtry
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
@@ -79,30 +68,43 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'kien/ctrlp.vim'
-Plugin 'Shutnik/jshint2.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'nvie/vim-flake8'
 Plugin 'jdonaldson/vaxe'
 Plugin 'rust-lang/rust.vim'
 Plugin 'JuliaLang/julia-vim'
+Plugin 'bling/vim-airline'
 
 call vundle#end()
+
+" Enable syntax highlighting
+syntax enable 
+
+
+set t_Co=256
+let g:solarized_termcolors=16
+colorscheme solarized
+set background=light
+
+
+" python run flake8
+"autocmd BufWritePost *.py call Flake8()
+"autocmd FileType python setlocal completeopt-=preview
+"highlight link Flake8_Complexity WarningMsg
+
 filetype plugin indent on
-
-
 "javascript spaces
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
+
+
 map <C-n> :NERDTreeToggle<CR>
 
-" python run flake8
-autocmd BufWritePost *.py call Flake8()
-" python turn off docs
-autocmd FileType python setlocal completeopt-=preview
-
-" js run jshint on save
-let jshint2_save = 1
+"autocmd bufwritepost *.js silent !standard % --format
+"set autoread
+"let g:syntastic_javascript_checkers = ['standard']
+let g:syntastic_javascript_checkers = ['/home/fritz/node_modules/.bin/eslint']

@@ -173,11 +173,28 @@ export FFMPEG_DATADIR="/usr/share/avconv/"
 
 export PYTHONPATH="/home/fritz/Development/me/caffe/python":$PYTHONPATH
 
-export JAVA_HOME="/opt/java-jdk/"
-export JRE_HOME="/opt/java-jdk/jre"
+export JAVA_HOME=/opt/java-jdk
+export JAVA=/opt/java-jdk
+export JRE_HOME=/opt/java-jdk/jre
+export ANT_HOME=/opt/apache-ant
+export ANDROID_HOME=/opt/android-sdk/
+
+export PATH="/opt/apache-ant/bin:$PATH"
 export PATH="/opt/android-sdk/platform-tools:$PATH"
 export PATH="/opt/android-sdk/tools:$PATH"
 
 export PATH="$PATH:$JAVA_HOME/bin" # Add JAVA to PATH 
-export PATH=$PATH:/usr/local/go/bin
-export PATH
+export PATH="$PATH:$JRE_HOME/bin" # Add JAVA to PATH 
+export PATH="$PATH:/usr/local/go/bin"
+
+export GOPATH=/home/fritz/.go
+#export PATH=
+
+###-tns-completion-start-###
+if [ -f /home/fritz/.tnsrc ]; then 
+    source /home/fritz/.tnsrc 
+fi
+###-tns-completion-end-###
+
+#[[ -n "$DISPLAY" && "$TERM" = "xterm" ]] && export TERM=xterm-256color
+#export TERM=gnome-256color
