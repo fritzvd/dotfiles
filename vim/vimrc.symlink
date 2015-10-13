@@ -11,7 +11,7 @@ nmap <leader>w :w!<cr>
 
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
-command W w !sudo tee % > /dev/null
+"command W w !sudo tee % > /dev/null
 
 " Highlight search results
 set hlsearch
@@ -78,6 +78,7 @@ Plugin 'jdonaldson/vaxe'
 Plugin 'rust-lang/rust.vim'
 Plugin 'JuliaLang/julia-vim'
 Plugin 'bling/vim-airline'
+Plugin 'vim-scripts/ekini-dark-colorscheme'
 
 call vundle#end()
 
@@ -85,9 +86,10 @@ call vundle#end()
 syntax enable 
 
 
-set t_Co=256
+"set t_Co=256
 let g:solarized_termcolors=16
-colorscheme solarized
+"let g:solarized_contrast="low"
+colorscheme solarized 
 set background=light
 
 
@@ -106,5 +108,17 @@ map <C-n> :NERDTreeToggle<CR>
 
 "autocmd bufwritepost *.js silent !standard % --format
 "set autoread
-"let g:syntastic_javascript_checkers = ['standard']
-let g:syntastic_javascript_checkers = ['/home/fritz/node_modules/.bin/eslint']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+""let g:syntastic_javascript_checkers = ['standard']
+let g:syntastic_javascript_checkers = ['jshint']
+"let g:syntastic_javascript_checkers = ['/home/fritz/node_modules/.bin/eslint']
+
+set colorcolumn=80
+
