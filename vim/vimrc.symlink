@@ -39,6 +39,8 @@ set expandtab
 set lbr
 set tw=500
 
+set ignorecase "search case-insensitive
+
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
@@ -88,7 +90,9 @@ syntax enable
 
 "set t_Co=256
 let g:solarized_termcolors=16
-"let g:solarized_contrast="low"
+"let g:solarized_contrast="high"
+let g:solarized_bold=1
+let g:solarized_italic=1
 colorscheme solarized 
 set background=light
 
@@ -106,19 +110,27 @@ autocmd Filetype html setlocal ts=2 sts=2 sw=2
 
 map <C-n> :NERDTreeToggle<CR>
 
-"autocmd bufwritepost *.js silent !standard % --format
-"set autoread
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-""let g:syntastic_javascript_checkers = ['standard']
+
+"autocmd bufwritepost *.js silent !standard % --format
+"set autoread
+"let g:syntastic_javascript_checkers = ['standard']
+
 let g:syntastic_javascript_checkers = ['jshint']
 "let g:syntastic_javascript_checkers = ['/home/fritz/node_modules/.bin/eslint']
 
 set colorcolumn=80
 
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+set wildignore+=platforms/*

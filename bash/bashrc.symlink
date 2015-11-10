@@ -212,3 +212,10 @@ fi
 #[[ -n "$DISPLAY" && "$TERM" = "xterm" ]] && export TERM=xterm-256color
 export TERM=xterm-256color
 alias tmux="TERM=screen-256color tmux"
+
+function execd {
+    container_id=$(docker ps -q | head -n 1)
+    echo "[START dockering] shelling out to latest Docker container, id="$container_id
+    docker exec -it $container_id bash
+    echo "[END dockering] id="$container_id
+}
