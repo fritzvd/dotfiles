@@ -1,34 +1,52 @@
-'editor':
-  'showIndentGuide': true
-  'fontFamily': 'Menlo'
-  'fontSize': 15
-  'invisibles': {}
-'core':
-  'ignoredNames': [
-    '.bundle'
-    '.git'
-    'log'
-    'repositories'
-    'tmp'
-    'vendor'
-  ]
-  'themes': [
-    'unity-ui'
-    'glacier-syntax'
-  ]
-  'hideGitIgnoredFiles': true
-  'disabledPackages': [
-    'background-tips'
-    'exception-reporting'
-    'metrics'
-  ]
-'spell-check':
-  'grammars': [
-    'text.plain'
-    'source.gfm'
-    'text.git-commit'
-  ]
-'welcome':
-  'showOnStartup': false
-'release-notes':
-  'viewedVersion': '0.89.0'
+"*":
+  editor:
+    showIndentGuide: true
+    invisibles: {}
+    fontSize: 12
+  core:
+    ignoredNames: [
+      ".bundle"
+      ".git"
+      "log"
+      "repositories"
+      "tmp"
+      "vendor"
+    ]
+    themes: [
+      "one-dark-ui"
+      "base16-eighties-one-dark"
+    ]
+    hideGitIgnoredFiles: true
+    disabledPackages: [
+      "background-tips"
+      "exception-reporting"
+      "metrics"
+      "vim-mode"
+      "love-atom"
+      "love-ide"
+      "symbols-view"
+      "linter-jshint"
+    ]
+    autoHideMenuBar: true
+    projectHome: "/home/fritz/Development"
+  "spell-check":
+    grammars: [
+      "text.plain"
+      "source.gfm"
+      "text.git-commit"
+    ]
+  welcome:
+    showOnStartup: false
+  "love-ide": {}
+  "love-launcher":
+    lovepath: "/usr/bin/love"
+  "tool-bar":
+    visible: false
+  "python-tools": {}
+  "one-dark-ui":
+    layoutMode: "Compact"
+  "atom-ctags":
+    autoBuildTagsWhenActive: true
+  "linter-pep8": {}
+  jshint:
+    validateOnlyOnSave: true
