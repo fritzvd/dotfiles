@@ -1,9 +1,18 @@
 "*":
-  editor:
-    showIndentGuide: true
-    invisibles: {}
-    fontSize: 12
+  "atom-ctags":
+    autoBuildTagsWhenActive: true
   core:
+    autoHideMenuBar: true
+    disabledPackages: [
+      "exception-reporting"
+      "metrics"
+      "vim-mode"
+      "love-atom"
+      "love-ide"
+      "jshint"
+      "linter-js-standard"
+    ]
+    hideGitIgnoredFiles: true
     ignoredNames: [
       ".bundle"
       ".git"
@@ -12,41 +21,45 @@
       "tmp"
       "vendor"
     ]
-    themes: [
-      "one-dark-ui"
-      "base16-eighties-one-dark"
-    ]
-    hideGitIgnoredFiles: true
-    disabledPackages: [
-      "background-tips"
-      "exception-reporting"
-      "metrics"
-      "vim-mode"
-      "love-atom"
-      "love-ide"
-      "symbols-view"
-      "linter-jshint"
-    ]
-    autoHideMenuBar: true
     projectHome: "/home/fritz/Development"
+    themes: [
+      "one-light-ui"
+      "base16-tomorrow-light-theme"
+    ]
+  editor:
+    fontSize: 12
+    invisibles: {}
+    showIndentGuide: true
+  haxe: {}
+  jshint:
+    validateOnlyOnSave: true
+  lime:
+    debug_logging: true
+    lime_default_target: "neko"
+  linter: {}
+  "linter-jshint": {}
+  "linter-pep8":
+    maxLineLength: 80
+    pep8ExecutablePath: "flake8"
+  "love-ide": {}
+  "love-launcher":
+    lovepath: "/usr/bin/love"
+  "one-dark-ui":
+    layoutMode: "Compact"
+  "python-tools": {}
   "spell-check":
     grammars: [
       "text.plain"
       "source.gfm"
       "text.git-commit"
     ]
-  welcome:
-    showOnStartup: false
-  "love-ide": {}
-  "love-launcher":
-    lovepath: "/usr/bin/love"
   "tool-bar":
     visible: false
-  "python-tools": {}
-  "one-dark-ui":
-    layoutMode: "Compact"
-  "atom-ctags":
-    autoBuildTagsWhenActive: true
-  "linter-pep8": {}
-  jshint:
-    validateOnlyOnSave: true
+  "tree-view":
+    hideVcsIgnoredFiles: true
+  welcome:
+    showOnStartup: false
+".js.source":
+  editor:
+    showInvisibles: false
+    softWrap: false

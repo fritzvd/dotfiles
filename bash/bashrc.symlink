@@ -183,7 +183,7 @@ export FFMPEG_PATH="/usr/local/bin/ffmpeg"
 export FFPROBE_PATH="/usr/local/bin/ffprobe"
 export FFMPEG_DATADIR="/usr/share/avconv/"
 
-export PYTHONPATH="/home/fritz/Development/me/caffe/python":$PYTHONPATH
+export PYTHONPATH="/home/fritz/Development/me/caffe/python:/usr/share/blender/scripts/modules":$PYTHONPATH
 
 export JAVA_HOME=/opt/java-jdk
 export JAVA=/opt/java-jdk
@@ -231,3 +231,12 @@ function vid2gif {
     ffmpeg -v warning -i $1 -vf "$filters,palettegen" -y $palette
     ffmpeg -v warning -i $1 -i $palette -lavfi "$filters [x]; [x][1:v] paletteuse" -y $2
 }
+
+#function blender_opencl {
+    #CYCLES_OPENCL_SPLIT_KERNEL_TEST=1 /home/fritz/Software/blender-2.76b-linux-glibc211-x86_64/blender
+#}
+
+alias blender="/home/fritz/Software/blender-latest/blender"
+alias hbase="docker run -p 2181:2181 -p 65000:65000 -p 65010:65010 -p 65020:65020 -p 65030:65030 -h $(hostname) -d oddpoet/hbase-cdh5"
+
+export SECRET_KEY='dummy_local_dev'
