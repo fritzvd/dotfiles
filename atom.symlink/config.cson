@@ -1,4 +1,7 @@
 "*":
+  "atom-beautify":
+    general:
+      _analyticsUserId: "bac6fdac-40cd-4b16-b04b-6c567a71649c"
   "atom-ctags":
     autoBuildTagsWhenActive: true
   core:
@@ -10,9 +13,11 @@
       "love-atom"
       "love-ide"
       "jshint"
+      "linter-jshint"
       "linter-js-standard"
+      "language-javascript-jsx"
     ]
-    hideGitIgnoredFiles: true
+    hideGitIgnoredFiles: false
     ignoredNames: [
       ".bundle"
       ".git"
@@ -20,15 +25,20 @@
       "repositories"
       "tmp"
       "vendor"
+      ".tx/"
+      "*.pyc"
     ]
     projectHome: "/home/fritz/Development"
     themes: [
-      "one-light-ui"
-      "base16-tomorrow-light-theme"
+      "one-dark-ui"
+      "fairyfloss"
     ]
+    "tree-view":
+      hideVcsIgnoredFiles: false
   editor:
     fontSize: 12
     invisibles: {}
+    scrollPastEnd: true
     showIndentGuide: true
   haxe: {}
   jshint:
@@ -36,7 +46,11 @@
   lime:
     debug_logging: true
     lime_default_target: "neko"
-  linter: {}
+  linter:
+    errorPanelHeight: 148
+  "linter-eslint":
+    disableWhenNoEslintConfig: false
+    lintHtmlFiles: true
   "linter-jshint": {}
   "linter-pep8":
     maxLineLength: 80
@@ -45,6 +59,8 @@
   "love-launcher":
     lovepath: "/usr/bin/love"
   "one-dark-ui":
+    layoutMode: "Compact"
+  "one-light-ui":
     layoutMode: "Compact"
   "python-tools": {}
   "spell-check":
@@ -56,7 +72,7 @@
   "tool-bar":
     visible: false
   "tree-view":
-    hideVcsIgnoredFiles: true
+    hideIgnoredNames: true
   welcome:
     showOnStartup: false
 ".js.source":

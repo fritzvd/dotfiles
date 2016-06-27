@@ -237,6 +237,62 @@ function vid2gif {
 #}
 
 alias blender="/home/fritz/Software/blender-latest/blender"
-alias hbase="docker run -p 2181:2181 -p 65000:65000 -p 65010:65010 -p 65020:65020 -p 65030:65030 -h $(hostname) -d oddpoet/hbase-cdh5"
+
+function hbase-docker {
+    hbase_docker_image=$(docker run -p 2181:2181 -p 65000:65000 -p 65010:65010 -p 65020:65020 -p 65030:65030 -p 9090:9090 -p 9095:9095 -h $(hostname) -d fritzvd/hbase-thrift)
+}
+
+alias khamake="haxelib run kha"
 
 export SECRET_KEY='dummy_local_dev'
+export DEVKITPRO="/opt/devkitpro"
+export DEVKITARM="/opt/devkitpro/devkitARM"
+alias gbacc="/opt/devkitpro/devkitARM/bin/arm-none-eabi-gcc"
+alias code="/home/fritz/Software/VSCode-linux-x64/code"
+
+
+function DockerStopDeleteAll {
+    echo "shutting down dockers"
+    docker ps -a | sed -n 2,10p | for i in `awk '{ print $1}'`
+        do docker rm -f $i; echo "shutdown $i"
+    done
+
+}
+
+function start_all_threedi_boxes {
+    DockerStopDeleteAll
+
+    export NENSHOME=/home/fritz/Development/nens
+    cd $NENSHOME/threedi/prd/threedi-server/deploy
+    echo "threedi_server"
+    vagrant reload
+    echo "threedi_inpy"
+    cd $NENSHOME/threedi/prd/threedi-inpy/deploy
+    vagrant reload
+    echo "threedi_machine_manager"
+    cd $NENSHOME/machine-manager/deploy
+    vagrant reload
+
+    # if second arg has something else thans spaces
+    if [![ $0 = *[!\ ]* ]]; then
+        run_threedi_servers
+    fi
+}
+
+function stop_all_threedi_boxes {
+    DockerStopDeleteAll
+    export NENSHOME=/home/fritz/Development/nens/
+    cd $NENSHOME/threedi/prd/threedi-server/deploy
+    vagrant halt
+    cd $NENSHOME/threedi/prd/threedi-inpy/deploy
+    vagrant halt
+    cd $NENSHOME/machine-manager/deploy
+    vagrant halt
+}
+
+function run_threedi_servers {
+    export NENSHOME=/home/fritz/Development/nens/
+    redis-cli -h 10.0.3.100 -n 0 flushdb
+    cd $NENSHOME/threedi/prd/threedi-server/deploy && vagrant ssh -c "/srv/prd/threedi-server/bin/run_socket_server 5004" &
+    $NENSHOME/threedi/wmsrp -p 8321 --redis-host 10.0.3.100 &
+}
