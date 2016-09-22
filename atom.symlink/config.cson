@@ -15,7 +15,7 @@
       "jshint"
       "linter-jshint"
       "linter-js-standard"
-      "language-javascript-jsx"
+      "linter-eslint"
     ]
     hideGitIgnoredFiles: false
     ignoredNames: [
@@ -30,13 +30,13 @@
     ]
     projectHome: "/home/fritz/Development"
     themes: [
-      "one-dark-ui"
-      "fairyfloss"
+      "one-light-ui"
+      "base16-eighties-one-dark"
     ]
     "tree-view":
       hideVcsIgnoredFiles: false
   editor:
-    fontSize: 12
+    fontSize: 13
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
@@ -48,6 +48,7 @@
     lime_default_target: "neko"
   linter:
     errorPanelHeight: 148
+    showErrorPanel: false
   "linter-eslint":
     disableWhenNoEslintConfig: false
     lintHtmlFiles: true
@@ -62,6 +63,10 @@
     layoutMode: "Compact"
   "one-light-ui":
     layoutMode: "Compact"
+  pomodoro:
+    pathToExecuteWithTimerAbort: "notify-send -i ~/Pictures/pomodoro.png \"Aborted Pomodoro\""
+    pathToExecuteWithTimerFinish: "notify-send -i ~/Pictures/pomodoro.png \"Break Time\""
+    pathToExecuteWithTimerStart: "notify-send -i ~/Pictures/pomodoro.png \"Start\""
   "python-tools": {}
   "spell-check":
     grammars: [

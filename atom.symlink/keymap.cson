@@ -6,3 +6,7 @@
   'f2': 'atom-ctags:go-to-declaration'
 '.editor':
   'ctrl-+': 'editor:auto-indent'
+
+'.platform-linux atom-text-editor':
+  'ctrl-f2': 'pomodoro:start'
+  'ctrl-f3': 'pomodoro:abort'
