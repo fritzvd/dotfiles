@@ -304,3 +304,4 @@ function lastDocker {
 function vexec {
     vagrant $1 `vagrant global-status | grep $2 | awk  '{print $1}'`
 }
+alias lcc=/home/fritz/Downloads/gbdk/bin/lcc

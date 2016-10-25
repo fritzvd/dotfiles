@@ -5,6 +5,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'jelera/vim-javascript-syntax'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
@@ -17,6 +18,7 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'JuliaLang/julia-vim'
 Plugin 'bling/vim-airline'
 Plugin 'chriskempson/base16-vim'
+Plugin 'terryma/vim-multiple-cursors'
 
 call vundle#end()
 
@@ -84,6 +86,13 @@ nmap <leader><Right> <C-w><Right>
 " split opens to the right
 set splitright
 
+" multiple cursors settings
+"let g:multi_cursor_use_default_mapping = 0
+"let g:multi_cursor_next_key='<C-d>'
+"let g:multi_cursor_prev_key='<C-S-d>'
+"let g:multi_cursor_skip_key='<C-S->'
+"let g:multi_cursor_next_key='<Esc>'
+
 
 " Enable syntax highlighting
 syntax enable 
@@ -114,7 +123,7 @@ autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 
 
-map <C-n> :NERDTreeToggle<CR>
+map <C-\> :NERDTreeToggle<CR>
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -127,10 +136,10 @@ let g:syntastic_check_on_wq = 0
 
 "autocmd bufwritepost *.js silent !standard % --format
 "set autoread
-let g:syntastic_javascript_checkers = ['standard']
+"let g:syntastic_javascript_checkers = ['standard']
 
 "let g:syntastic_javascript_checkers = ['jshint']
-"let g:syntastic_javascript_checkers = ['/home/fritz/node_modules/.bin/eslint']
+let g:syntastic_javascript_checkers = ['/home/fritz/node_modules/.bin/eslint']
 
 set colorcolumn=80
 
