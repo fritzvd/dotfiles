@@ -29,6 +29,7 @@
       "*.pyc"
     ]
     projectHome: "/home/fritz/Development"
+    telemetryConsent: "limited"
     themes: [
       "one-light-ui"
       "base16-eighties-one-dark"
