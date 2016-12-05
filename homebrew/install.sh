@@ -6,18 +6,19 @@
 # using Homebrew.
 
 # Check for Homebrew
-os=`uname`
-if [ "$os" == "Darwin" ]; then
-	if test ! $(which brew)
-	then
-	  echo "  Installing Homebrew for you."
-	  ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)" > /tmp/homebrew-install.log
-	fi
+if test ! $(which brew)
+then
+  echo "  Installing Homebrew for you."
 
-	# Install homebrew packages
-	brew install grc coreutils spark
-elif [ "$os" == "Linux" ]; then
-	echo "Homebrew is for Darwinists"
+  # Install the correct homebrew for each OS type
+  if test "$(uname)" = "Darwin"
+  then
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
+  then
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
+  fi
+
 fi
 
 exit 0
